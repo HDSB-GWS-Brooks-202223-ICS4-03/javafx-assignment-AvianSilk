@@ -32,6 +32,7 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -39,16 +40,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="mainVBox" prefHeight="614.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Wordle">
+<VBox fx:id="mainVBox" prefHeight="614.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WordleController">
   <children>
-    <AnchorPane fx:id="anchPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="426.0" prefWidth="353.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="anchPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="638.0" prefWidth="512.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label fx:id="mainLabel" alignment="CENTER" layoutX="3.0" layoutY="53.0" prefHeight="55.0" prefWidth="506.0" style="&#10;" text="Wordle" textAlignment="CENTER" wrapText="false">
+        <Label fx:id="mainLabel" alignment="CENTER" layoutX="3.0" layoutY="29.0" prefHeight="55.0" prefWidth="506.0" style="&#10;" text="Wordle" textAlignment="CENTER" wrapText="false">
           <font>
             <Font name="Source Sans Pro Black" size="42.0" />
           </font>
         </Label>
-            <VBox fx:id="gridVBox" layoutX="26.0" layoutY="162.0" prefHeight="426.0" prefWidth="460.0">
+            <VBox fx:id="gridVBox" layoutX="26.0" layoutY="108.0" prefHeight="426.0" prefWidth="460.0">
                <children>
                   <HBox fx:id="row1" prefHeight="70.0" prefWidth="358.0">
                      <children>
@@ -201,6 +202,11 @@
                   </HBox>
                </children>
             </VBox>
+            <Button fx:id="replayB" layoutX="219.0" layoutY="542.0" mnemonicParsing="false" onAction="#whenClicked" prefHeight="34.0" prefWidth="74.0" text="Replay">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
       </children>
     </AnchorPane>
   </children>
