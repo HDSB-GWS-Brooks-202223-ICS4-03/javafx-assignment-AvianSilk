@@ -1,15 +1,23 @@
-import javafx.application.Application;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-public class Wordle extends Application {
+public class Wordle {
 
-    private String answer = "WORDS";
+    private String answer;
+
+    List <String> validWords;
 
     @FXML
     VBox mainVBox, gridVBox;
@@ -40,12 +48,31 @@ public class Wordle extends Application {
 
     @FXML
     TextField r6c1, r6c2, r6c3, r6c4, r6c5;
-    
-    @Override
-    public void start(Stage stage) {}
 
     @FXML
-    private void typed() {
+    public void initialize() throws IOException {
+
+        validWords = new ArrayList<String>();
+        try {
+            File wordList = new File(App.class.getResource("wordleWordListClean.txt").getPath());
+            Scanner reader = new Scanner(wordList);
+            while (reader.hasNextLine()) {
+                validWords.add(reader.nextLine());
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+            e.printStackTrace();
+        }
+
+        Random rand = new Random();
+        int wordNumber = rand.nextInt(validWords.size());
+        answer = validWords.get(wordNumber).toUpperCase();
+        System.out.println(answer);
+    }
+
+    @FXML
+    private void whenTyped() {
 
         displayResult(r1c1, r1c2, 0); // Row 1 text fields
         displayResult(r1c2, r1c3, 1);
@@ -81,7 +108,17 @@ public class Wordle extends Application {
         displayResult(r6c2, r6c3, 1);
         displayResult(r6c3, r6c4, 2);
         displayResult(r6c4, r6c5, 3);
-        displayResult(r6c5, 4);
+        displayResult(r6c5, r1c1, 4);
+
+        if (checkIfAnswered(r1c1, r1c2, r1c3, r1c4, r1c5)
+                || checkIfAnswered(r2c1, r2c2, r2c3, r2c4, r2c5)
+                || checkIfAnswered(r3c1, r3c2, r3c3, r3c4, r3c5)
+                || checkIfAnswered(r4c1, r4c2, r4c3, r4c4, r4c5)
+                || checkIfAnswered(r5c1, r5c2, r5c3, r5c4, r5c5)
+                || checkIfAnswered(r6c1, r6c2, r6c3, r6c4, r6c5)) {
+            mainLabel.setText("YOU WON!");
+            mainLabel.requestFocus();
+        }
 
     }
 
@@ -125,21 +162,28 @@ public class Wordle extends Application {
         return "-fx-background-color: lightgray;";
     }
 
+    private boolean checkIfAnswered(TextField tf1, TextField tf2, TextField tf3, TextField tf4, TextField tf5) {
+        return ((tf1.getStyle() == "-fx-background-color: lightgreen;")
+        && (tf2.getStyle() == "-fx-background-color: lightgreen;")
+        && (tf3.getStyle() == "-fx-background-color: lightgreen;")
+        && (tf4.getStyle() == "-fx-background-color: lightgreen;")
+        && (tf5.getStyle() == "-fx-background-color: lightgreen;"));
+    }
+
     private void displayResult(TextField currentTF, TextField nextTF, int index) {
-        if (currentTF.isFocused() && currentTF.getText().length() == 1) {
-            currentTF.setStyle(checkLetter(currentTF.getText(), index));
-            nextTF.requestFocus();
+        if (!nextTF.getId().equals("r1c1")) {
+            if (currentTF.isFocused() && currentTF.getText().length() == 1) {
+                currentTF.setText(currentTF.getText().toUpperCase());
+                currentTF.setStyle(checkLetter(currentTF.getText(), index));
+                nextTF.requestFocus();
+            }
+        } else {
+            if (currentTF.isFocused() && currentTF.getText().length() == 1) {
+                currentTF.setText(currentTF.getText().toUpperCase());
+                currentTF.setStyle(checkLetter(currentTF.getText(), index));
+                mainLabel.setText("It was " + answer);
+                mainLabel.requestFocus();
+            }
         }
     }
-
-    private void displayResult(TextField currentTF, int index) {
-        if (currentTF.isFocused() && currentTF.getText().length() == 1) {
-            currentTF.setStyle(checkLetter(currentTF.getText(), index));
-        }
-    }
-
-    public static void main(String[] args) {
-        launch();
-    }
-
 }
