@@ -20,6 +20,9 @@ public class WordleController {
 
     private List<String> validWords;
 
+    private List<HBox> rows;
+    private List<List<TextField>> allTFs;
+
     @FXML
     private VBox mainVBox, gridVBox;
 
@@ -32,7 +35,7 @@ public class WordleController {
     @FXML
     private HBox row1, row2, row3, row4, row5, row6;
 
-    @FXML
+    /* @FXML
     private TextField r1c1, r1c2, r1c3, r1c4, r1c5;
 
     @FXML
@@ -48,7 +51,7 @@ public class WordleController {
     private TextField r5c1, r5c2, r5c3, r5c4, r5c5;
 
     @FXML
-    private TextField r6c1, r6c2, r6c3, r6c4, r6c5;
+    private TextField r6c1, r6c2, r6c3, r6c4, r6c5; */
 
     @FXML
     private Button replayB;
@@ -57,6 +60,9 @@ public class WordleController {
     public void initialize() throws IOException {
 
         validWords = new ArrayList<String>();
+        rows = new ArrayList<HBox>();
+        allTFs = new ArrayList<List<TextField>>();
+
         try {
             File wordList = new File(App.class.getResource("wordleWordListClean.txt").getPath());
             Scanner reader = new Scanner(wordList);
@@ -74,36 +80,26 @@ public class WordleController {
         answerUp = answerLow.toUpperCase();
         // System.out.println(answerUp);
 
-        /* List <HBox> rows = new ArrayList<HBox>();
-        List <ArrayList<TextField>> tFields = new ArrayList<ArrayList<TextField>>();
         for (int i = 0; i < gridVBox.getChildren().size(); i++) {
-        rows.add((HBox) gridVBox.getChildren().get(i));
-        // tFields.add((ArrayList<TextField>) (rows.get(i).getChildren()));
+            rows.add((HBox) gridVBox.getChildren().get(i));
+            allTFs.add(new ArrayList<TextField>());
         }
-        for (int k = 0; k < rows.size(); k++) {
-        for (int l = 0; l < rows.get(k).getChildren().size(); l++) {
-        tFields.get(k).add((TextField) rows.get(k).getChildren().get(l));
+
+        for (int j = 0; j < rows.size(); j++) {
+            for (int i = 0; i < rows.get(j).getChildren().size(); i += 2) {
+                allTFs.get(j).add((TextField) rows.get(j).getChildren().get(i));
+            }
         }
-        }
-        for (HBox hb : rows) {
-        System.out.println("HBox -" + "\t" + hb.getId());
-        }
-        for (int i = 0; i < 6; i++) {
-        rows.get(i).getChildren();
-        for (int j = 0; j < 5; j++) {
-        ;
-        }
-        } */
     }
 
     @FXML
     private void whenTyped() {
-        checkWord(row1, r2c1);
-        checkWord(row2, r3c1);
-        checkWord(row3, r4c1);
-        checkWord(row4, r5c1);
-        checkWord(row5, r6c1);
-        checkWord(row6, r1c1);
+        checkWord(0, allTFs.get(1).get(0));
+        checkWord(1, allTFs.get(2).get(0));
+        checkWord(2, allTFs.get(3).get(0));
+        checkWord(3, allTFs.get(4).get(0));
+        checkWord(4, allTFs.get(5).get(0));
+        checkWord(5, allTFs.get(0).get(0));
     }
 
     @FXML
@@ -111,53 +107,46 @@ public class WordleController {
         resetGame();
     }
 
-    private void checkWord(HBox row, TextField nextTF) {
+    private void checkWord(int rowIndex, TextField nextTF) {
 
+        List<TextField> currentTextFields = allTFs.get(rowIndex);
         String guess = "";
-        List<TextField> textFields = new ArrayList<TextField>();
-        for (int i = 0; i < row.getChildren().size(); i++) {
-            textFields.add((TextField) row.getChildren().get(i));
-            guess += textFields.get(i).getText().toLowerCase();
+        for (int j = 0; j < currentTextFields.size(); j++) {
+            guess += currentTextFields.get(j).getText().toLowerCase();
         }
         char[] guessCharArr = guess.toCharArray();
 
-        /*
-         * ArrayList <Character> guessCharArrList = new ArrayList<Character>();
-         * for (char c : guessCharArr) {
-         * guessCharArrList.add(c);
-         * System.out.println(c);
-         * }
-         * Character ch = Character.MIN_VALUE;
-         */
+        displayText(currentTextFields.get(0), currentTextFields.get(1));
+        displayText(currentTextFields.get(1), currentTextFields.get(2));
+        displayText(currentTextFields.get(2), currentTextFields.get(3));
+        displayText(currentTextFields.get(3), currentTextFields.get(4));
+        displayText(currentTextFields.get(4), nextTF);
 
-        displayText(textFields.get(0), textFields.get(1));
-        displayText(textFields.get(1), textFields.get(2));
-        displayText(textFields.get(2), textFields.get(3));
-        displayText(textFields.get(3), textFields.get(4));
-        displayText(textFields.get(4), nextTF);
-
-        if (!(textFields.get(0).getText().equals("")
-                || textFields.get(1).getText().equals("")
-                || textFields.get(2).getText().equals("")
-                || textFields.get(3).getText().equals("")
-                || textFields.get(4).getText().equals(""))) { // Checking if all of the text fields in the row are filled
+        // Checking if all of the text fields in the row are filled
+        if (!(currentTextFields.get(0).getText().equals("")
+                || currentTextFields.get(1).getText().equals("")
+                || currentTextFields.get(2).getText().equals("")
+                || currentTextFields.get(3).getText().equals("")
+                || currentTextFields.get(4).getText().equals(""))) {
             if (!(validWords.contains(guess))) { // The guess is an invalid word
-                for (TextField tf : textFields) {
+                for (TextField tf : currentTextFields) {
                     tf.clear();
                 }
-                textFields.get(0).requestFocus();
+                currentTextFields.get(0).requestFocus();
                 mainLabel.setText("Not a valid word");
             } else if (guess.equals(answerLow)) { // The guess is the answer
-                for (int i = 0; i < textFields.size(); i++) {
-                    textFields.get(i).setStyle("-fx-background-color: lightgreen;");
+                for (TextField tf : currentTextFields) {
+                    tf.setStyle("-fx-background-color: lightgreen;");
+                    tf.setEditable(false);
                 }
                 mainLabel.setText("YOU WON!");
                 replayB.requestFocus();
             } else { // The guess is a valid word but not the answer
-                for (int i = 0; i < textFields.size(); i++) {
-                    textFields.get(i).setStyle(colorWord(guessCharArr, textFields.get(i), i));
+                for (int i = 0; i < currentTextFields.size(); i++) {
+                    currentTextFields.get(i).setStyle(colorWord(guessCharArr, currentTextFields.get(i), i));
+                    currentTextFields.get(i).setEditable(false);
                 }
-                if (!textFields.get(4).getId().equals("r6c5"))
+                if (!currentTextFields.get(4).getId().equals("r6c5"))
                     mainLabel.setText("Wordle");
             }
         }
@@ -214,25 +203,22 @@ public class WordleController {
         }
     }
 
-    private void resetRow(HBox row) {
-        List<TextField> textFields = new ArrayList<TextField>();
-        for (int i = 0; i < row.getChildren().size(); i++) {
-            textFields.add((TextField) row.getChildren().get(i));
-            textFields.get(i).clear();
-            textFields.get(i).setStyle("-fx-background-color: white;");
-            textFields.get(i).setStyle("-fx-border-color: lightgray;");
+    private void resetRow(int rowIndex) {
+        List<TextField> currentTextFields = allTFs.get(rowIndex);
+        for (int j = 0; j < currentTextFields.size(); j++) {
+            currentTextFields.get(j).clear();
+            currentTextFields.get(j).setStyle("-fx-background-color: white;");
+            currentTextFields.get(j).setStyle("-fx-border-color: lightgray;");
+            currentTextFields.get(j).setEditable(true);
         }
     }
 
     private void resetGame() {
-        List <HBox> rows = new ArrayList<HBox>();
-        for (int i = 0; i < gridVBox.getChildren().size(); i++) {
-            rows.add((HBox) gridVBox.getChildren().get(i));
-            resetRow(rows.get(i));
+        for (int i = 0; i < rows.size(); i++) {
+            resetRow(i);
         }
-
         mainLabel.setText("Wordle");
-        r1c1.requestFocus();
+        allTFs.get(0).get(0).requestFocus();
 
         Random rand = new Random();
         answerLow = validWords.get(rand.nextInt(validWords.size()));

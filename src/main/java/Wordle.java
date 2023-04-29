@@ -15,7 +15,7 @@ public class Wordle extends Application {
         rootPane.setAlignment(Pos.CENTER);
 
         //Create the scene and display it.
-        Scene scene = new Scene(rootPane, 640, 480);
+        Scene scene = new Scene(rootPane, 512, 614);
         stage.setScene(scene);
         stage.show();
     }
