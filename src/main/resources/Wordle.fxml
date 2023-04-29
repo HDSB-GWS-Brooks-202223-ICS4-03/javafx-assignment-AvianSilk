@@ -55,27 +55,27 @@
                      <children>
                         <TextField fx:id="r1c1" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="r1c2" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="r1c3" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="r1c4" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font>
                         </TextField>
                         <TextField fx:id="r1c5" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font>
                         </TextField>
                      </children>
@@ -84,23 +84,23 @@
                      <children>
                         <TextField fx:id="r2c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r2c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r2c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r2c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r2c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                      </children>
                   </HBox>
@@ -108,23 +108,23 @@
                      <children>
                         <TextField fx:id="r3c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r3c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r3c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r3c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r3c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                      </children>
                   </HBox>
@@ -132,23 +132,23 @@
                      <children>
                         <TextField fx:id="r4c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r4c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r4c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r4c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r4c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                      </children>
                   </HBox>
@@ -156,23 +156,23 @@
                      <children>
                         <TextField fx:id="r5c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r5c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r5c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r5c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r5c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                      </children>
                   </HBox>
@@ -180,29 +180,29 @@
                      <children>
                         <TextField fx:id="r6c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r6c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r6c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r6c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                         <TextField fx:id="r6c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="92.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="21.0" />
                            </font></TextField>
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <Button fx:id="replayB" layoutX="219.0" layoutY="542.0" mnemonicParsing="false" onAction="#whenClicked" prefHeight="34.0" prefWidth="74.0" text="Replay">
+            <Button fx:id="replayB" layoutX="206.0" layoutY="545.0" mnemonicParsing="false" onAction="#whenClicked" prefHeight="37.0" prefWidth="98.0" text="Play Again">
                <font>
                   <Font size="16.0" />
                </font>

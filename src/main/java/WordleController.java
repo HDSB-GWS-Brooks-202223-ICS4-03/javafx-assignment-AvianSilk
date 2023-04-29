@@ -18,9 +18,7 @@ public class WordleController {
 
     private String answerLow, answerUp;
 
-    private List <String> validWords;
-
-    // private boolean isReset;
+    private List<String> validWords;
 
     @FXML
     private VBox mainVBox, gridVBox;
@@ -57,8 +55,7 @@ public class WordleController {
 
     @FXML
     public void initialize() throws IOException {
-        
-        // isReset = false;
+
         validWords = new ArrayList<String>();
         try {
             File wordList = new File(App.class.getResource("wordleWordListClean.txt").getPath());
@@ -76,17 +73,37 @@ public class WordleController {
         answerLow = validWords.get(rand.nextInt(validWords.size()));
         answerUp = answerLow.toUpperCase();
         // System.out.println(answerUp);
+
+        /* List <HBox> rows = new ArrayList<HBox>();
+        List <ArrayList<TextField>> tFields = new ArrayList<ArrayList<TextField>>();
+        for (int i = 0; i < gridVBox.getChildren().size(); i++) {
+        rows.add((HBox) gridVBox.getChildren().get(i));
+        // tFields.add((ArrayList<TextField>) (rows.get(i).getChildren()));
+        }
+        for (int k = 0; k < rows.size(); k++) {
+        for (int l = 0; l < rows.get(k).getChildren().size(); l++) {
+        tFields.get(k).add((TextField) rows.get(k).getChildren().get(l));
+        }
+        }
+        for (HBox hb : rows) {
+        System.out.println("HBox -" + "\t" + hb.getId());
+        }
+        for (int i = 0; i < 6; i++) {
+        rows.get(i).getChildren();
+        for (int j = 0; j < 5; j++) {
+        ;
+        }
+        } */
     }
 
     @FXML
     private void whenTyped() {
-        checkWord(r1c1, r1c2, r1c3, r1c4, r1c5, r2c1);
-        checkWord(r2c1, r2c2, r2c3, r2c4, r2c5, r3c1);
-        checkWord(r3c1, r3c2, r3c3, r3c4, r3c5, r4c1);
-        checkWord(r4c1, r4c2, r4c3, r4c4, r4c5, r5c1);
-        checkWord(r5c1, r5c2, r5c3, r5c4, r5c5, r6c1);
-        checkWord(r6c1, r6c2, r6c3, r6c4, r6c5, r1c1); // r1c1 is just a placeholder
-
+        checkWord(row1, r2c1);
+        checkWord(row2, r3c1);
+        checkWord(row3, r4c1);
+        checkWord(row4, r5c1);
+        checkWord(row5, r6c1);
+        checkWord(row6, r1c1);
     }
 
     @FXML
@@ -94,52 +111,53 @@ public class WordleController {
         resetGame();
     }
 
-    private void checkWord(TextField tf1, TextField tf2, TextField tf3, TextField tf4, TextField tf5, TextField nextTF) {
+    private void checkWord(HBox row, TextField nextTF) {
 
-        String guess = tf1.getText().toLowerCase() + tf2.getText().toLowerCase() + tf3.getText().toLowerCase() + tf4.getText().toLowerCase() + tf5.getText().toLowerCase();
+        String guess = "";
+        List<TextField> textFields = new ArrayList<TextField>();
+        for (int i = 0; i < row.getChildren().size(); i++) {
+            textFields.add((TextField) row.getChildren().get(i));
+            guess += textFields.get(i).getText().toLowerCase();
+        }
         char[] guessCharArr = guess.toCharArray();
 
-        /* ArrayList <Character> guessCharArrList = new ArrayList<Character>();
-        for (char c : guessCharArr) {
-            guessCharArrList.add(c);
-            System.out.println(c);
-        }
-        Character ch = Character.MIN_VALUE; */
+        /*
+         * ArrayList <Character> guessCharArrList = new ArrayList<Character>();
+         * for (char c : guessCharArr) {
+         * guessCharArrList.add(c);
+         * System.out.println(c);
+         * }
+         * Character ch = Character.MIN_VALUE;
+         */
 
-        displayText(tf1, tf2);
-        displayText(tf2, tf3);
-        displayText(tf3, tf4);
-        displayText(tf4, tf5);
-        displayText(tf5, nextTF);
+        displayText(textFields.get(0), textFields.get(1));
+        displayText(textFields.get(1), textFields.get(2));
+        displayText(textFields.get(2), textFields.get(3));
+        displayText(textFields.get(3), textFields.get(4));
+        displayText(textFields.get(4), nextTF);
 
-        if (!(tf1.getText().equals("")
-                || tf2.getText().equals("")
-                || tf3.getText().equals("")
-                || tf4.getText().equals("")
-                || tf5.getText().equals(""))) { // Checking if all of the text fields in the row are filled
+        if (!(textFields.get(0).getText().equals("")
+                || textFields.get(1).getText().equals("")
+                || textFields.get(2).getText().equals("")
+                || textFields.get(3).getText().equals("")
+                || textFields.get(4).getText().equals(""))) { // Checking if all of the text fields in the row are filled
             if (!(validWords.contains(guess))) { // The guess is an invalid word
-                tf1.clear();
-                tf2.clear();
-                tf3.clear();
-                tf4.clear();
-                tf5.clear();
-                tf1.requestFocus();
+                for (TextField tf : textFields) {
+                    tf.clear();
+                }
+                textFields.get(0).requestFocus();
                 mainLabel.setText("Not a valid word");
             } else if (guess.equals(answerLow)) { // The guess is the answer
-                tf1.setStyle("-fx-background-color: lightgreen;");
-                tf2.setStyle("-fx-background-color: lightgreen;");
-                tf3.setStyle("-fx-background-color: lightgreen;");
-                tf4.setStyle("-fx-background-color: lightgreen;");
-                tf5.setStyle("-fx-background-color: lightgreen;");
+                for (int i = 0; i < textFields.size(); i++) {
+                    textFields.get(i).setStyle("-fx-background-color: lightgreen;");
+                }
                 mainLabel.setText("YOU WON!");
-                mainLabel.requestFocus();
+                replayB.requestFocus();
             } else { // The guess is a valid word but not the answer
-                tf1.setStyle(colorWord(guessCharArr, tf1, 0));
-                tf2.setStyle(colorWord(guessCharArr, tf2, 1));
-                tf3.setStyle(colorWord(guessCharArr, tf3, 2));
-                tf4.setStyle(colorWord(guessCharArr, tf4, 3));
-                tf5.setStyle(colorWord(guessCharArr, tf5, 4));
-                if (!tf5.getId().equals("r6c5"))
+                for (int i = 0; i < textFields.size(); i++) {
+                    textFields.get(i).setStyle(colorWord(guessCharArr, textFields.get(i), i));
+                }
+                if (!textFields.get(4).getId().equals("r6c5"))
                     mainLabel.setText("Wordle");
             }
         }
@@ -151,34 +169,34 @@ public class WordleController {
         } else {
             if (index == 0) {
                 if (guessCharArrIn[index] == answerLow.charAt(1)
-                    || guessCharArrIn[index] == answerLow.charAt(2)
-                    || guessCharArrIn[index] == answerLow.charAt(3)
-                    || guessCharArrIn[index] == answerLow.charAt(4))
-                return "-fx-background-color: yellow;";
+                        || guessCharArrIn[index] == answerLow.charAt(2)
+                        || guessCharArrIn[index] == answerLow.charAt(3)
+                        || guessCharArrIn[index] == answerLow.charAt(4))
+                    return "-fx-background-color: yellow;";
             } else if (index == 1) {
                 if (guessCharArrIn[index] == answerLow.charAt(0)
-                    || guessCharArrIn[index] == answerLow.charAt(2)
-                    || guessCharArrIn[index] == answerLow.charAt(3)
-                    || guessCharArrIn[index] == answerLow.charAt(4))
-                return "-fx-background-color: yellow;";
+                        || guessCharArrIn[index] == answerLow.charAt(2)
+                        || guessCharArrIn[index] == answerLow.charAt(3)
+                        || guessCharArrIn[index] == answerLow.charAt(4))
+                    return "-fx-background-color: yellow;";
             } else if (index == 2) {
                 if (guessCharArrIn[index] == answerLow.charAt(0)
-                    || guessCharArrIn[index] == answerLow.charAt(1)
-                    || guessCharArrIn[index] == answerLow.charAt(3)
-                    || guessCharArrIn[index] == answerLow.charAt(4))
-                return "-fx-background-color: yellow;";
+                        || guessCharArrIn[index] == answerLow.charAt(1)
+                        || guessCharArrIn[index] == answerLow.charAt(3)
+                        || guessCharArrIn[index] == answerLow.charAt(4))
+                    return "-fx-background-color: yellow;";
             } else if (index == 3) {
                 if (guessCharArrIn[index] == answerLow.charAt(0)
-                    || guessCharArrIn[index] == answerLow.charAt(1)
-                    || guessCharArrIn[index] == answerLow.charAt(2)
-                    || guessCharArrIn[index] == answerLow.charAt(4))
-                return "-fx-background-color: yellow;";
+                        || guessCharArrIn[index] == answerLow.charAt(1)
+                        || guessCharArrIn[index] == answerLow.charAt(2)
+                        || guessCharArrIn[index] == answerLow.charAt(4))
+                    return "-fx-background-color: yellow;";
             } else if (index == 4) {
                 if (guessCharArrIn[index] == answerLow.charAt(0)
-                    || guessCharArrIn[index] == answerLow.charAt(1)
-                    || guessCharArrIn[index] == answerLow.charAt(2)
-                    || guessCharArrIn[index] == answerLow.charAt(3))
-                return "-fx-background-color: yellow;";
+                        || guessCharArrIn[index] == answerLow.charAt(1)
+                        || guessCharArrIn[index] == answerLow.charAt(2)
+                        || guessCharArrIn[index] == answerLow.charAt(3))
+                    return "-fx-background-color: yellow;";
             }
         }
         return "-fx-background-color: lightgray;";
@@ -189,45 +207,34 @@ public class WordleController {
             currentTF.setText(currentTF.getText().toUpperCase());
             if (currentTF.getId().equals("r6c5")) {
                 mainLabel.setText("It was " + answerUp);
-                mainLabel.requestFocus();
+                replayB.requestFocus();
             } else {
                 nextTF.requestFocus();
             }
         }
     }
 
-    private void resetText(TextField tf1, TextField tf2, TextField tf3, TextField tf4, TextField tf5) {
-        tf1.clear();
-        tf2.clear();
-        tf3.clear();
-        tf4.clear();
-        tf5.clear();
-
-        tf1.setStyle("-fx-background-color: white;");
-        tf2.setStyle("-fx-background-color: white;");
-        tf3.setStyle("-fx-background-color: white;");
-        tf4.setStyle("-fx-background-color: white;");
-        tf5.setStyle("-fx-background-color: white;");
-
-        tf1.setStyle("-fx-border-color: lightgray");
-        tf2.setStyle("-fx-border-color: lightgray");
-        tf3.setStyle("-fx-border-color: lightgray");
-        tf4.setStyle("-fx-border-color: lightgray");
-        tf5.setStyle("-fx-border-color: lightgray");
+    private void resetRow(HBox row) {
+        List<TextField> textFields = new ArrayList<TextField>();
+        for (int i = 0; i < row.getChildren().size(); i++) {
+            textFields.add((TextField) row.getChildren().get(i));
+            textFields.get(i).clear();
+            textFields.get(i).setStyle("-fx-background-color: white;");
+            textFields.get(i).setStyle("-fx-border-color: lightgray;");
+        }
     }
 
     private void resetGame() {
-        resetText(r1c1, r1c2, r1c3, r1c4, r1c5);
-        resetText(r2c1, r2c2, r2c3, r2c4, r2c5);
-        resetText(r3c1, r3c2, r3c3, r3c4, r3c5);
-        resetText(r4c1, r4c2, r4c3, r4c4, r4c5);
-        resetText(r5c1, r5c2, r5c3, r5c4, r5c5);
-        resetText(r6c1, r6c2, r6c3, r6c4, r6c5);
+        List <HBox> rows = new ArrayList<HBox>();
+        for (int i = 0; i < gridVBox.getChildren().size(); i++) {
+            rows.add((HBox) gridVBox.getChildren().get(i));
+            resetRow(rows.get(i));
+        }
 
         mainLabel.setText("Wordle");
         r1c1.requestFocus();
 
-        Random rand  = new Random();
+        Random rand = new Random();
         answerLow = validWords.get(rand.nextInt(validWords.size()));
         answerUp = answerLow.toUpperCase();
     }
