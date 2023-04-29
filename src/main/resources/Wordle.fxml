@@ -41,193 +41,193 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="mainVBox" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="614.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WordleController">
+<VBox fx:id="mainVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WordleController">
   <children>
-    <AnchorPane fx:id="anchPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="638.0" prefWidth="706.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="anchPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="512.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
       <children>
-        <Label fx:id="mainLabel" alignment="CENTER" layoutX="3.0" layoutY="29.0" prefHeight="55.0" prefWidth="506.0" text="Wordle" textAlignment="CENTER" wrapText="false">
+        <Label fx:id="mainLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="27.0" prefHeight="60.0" prefWidth="343.0" style="-fx-text-fill: white;" text="Wordle" textAlignment="CENTER" wrapText="true">
           <font>
-            <Font name="Source Sans Pro Black" size="42.0" />
+            <Font name="Noto Serif Condensed Bold" size="42.0" />
           </font>
         </Label>
-            <VBox fx:id="gridVBox" layoutX="63.0" layoutY="107.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="426.0" prefWidth="385.0">
+            <VBox fx:id="gridVBox" layoutX="68.0" layoutY="108.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="426.0" prefWidth="375.0">
                <children>
                   <HBox fx:id="row1" maxWidth="-Infinity" prefHeight="70.0" prefWidth="395.0">
                      <children>
-                        <TextField fx:id="r1c1" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <TextField fx:id="r1c1" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font>
                         </TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r1c2" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r1c2" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font>
                         </TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r1c3" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r1c3" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font>
                         </TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r1c4" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r1c4" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font>
                         </TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r1c5" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r1c5" alignment="CENTER" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font>
                         </TextField>
                      </children>
                   </HBox>
                   <HBox fx:id="row2" maxWidth="-Infinity" prefHeight="70.0" prefWidth="395.0">
                      <children>
-                        <TextField fx:id="r2c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <TextField fx:id="r2c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r2c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r2c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r2c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r2c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r2c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r2c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r2c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r2c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
                      </children>
                   </HBox>
                   <HBox fx:id="row3" maxWidth="-Infinity" prefHeight="70.0" prefWidth="395.0">
                      <children>
-                        <TextField fx:id="r3c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <TextField fx:id="r3c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r3c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r3c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r3c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r3c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r3c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r3c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r3c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r3c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
                      </children>
                   </HBox>
                   <HBox fx:id="row4" maxWidth="-Infinity" prefHeight="70.0" prefWidth="395.0">
                      <children>
-                        <TextField fx:id="r4c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <TextField fx:id="r4c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r4c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r4c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r4c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r4c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r4c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r4c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r4c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r4c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
                      </children>
                   </HBox>
                   <HBox fx:id="row5" maxWidth="-Infinity" prefHeight="70.0" prefWidth="395.0">
                      <children>
-                        <TextField fx:id="r5c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <TextField fx:id="r5c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r5c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r5c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r5c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r5c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r5c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r5c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r5c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r5c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
                      </children>
                   </HBox>
                   <HBox fx:id="row6" maxWidth="-Infinity" prefHeight="70.0" prefWidth="395.0">
                      <children>
-                        <TextField fx:id="r6c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <TextField fx:id="r6c1" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r6c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r6c2" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r6c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r6c3" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r6c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r6c4" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="7.5" />
-                        <TextField fx:id="r6c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="5.0" />
+                        <TextField fx:id="r6c5" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#whenTyped" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold;">
                            <font>
-                              <Font size="21.0" />
+                              <Font size="22.0" />
                            </font></TextField>
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <Button fx:id="replayB" layoutX="206.0" layoutY="545.0" mnemonicParsing="false" onAction="#whenClicked" prefHeight="37.0" prefWidth="98.0" text="Play Again">
+            <Button fx:id="playAgainB" alignment="CENTER" layoutX="207.0" layoutY="542.0" mnemonicParsing="false" onAction="#whenClicked" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: #2b2a2a;" text="Play Again" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
