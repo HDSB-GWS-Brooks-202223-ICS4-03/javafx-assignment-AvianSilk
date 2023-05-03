@@ -19,7 +19,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //Change primary to whatever FXML file you wish to load
-        scene = new Scene(loadFXML("Wordle"), 512, 614);
+        scene = new Scene(loadFXML("Wordle"), 485, 625);
         stage.setScene(scene);
         stage.show();
     }

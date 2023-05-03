@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import javafx.animation.RotateTransition;
+import javafx.animation.SequentialTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 public class WordleController {
 
@@ -23,7 +27,7 @@ public class WordleController {
     private List<HBox> rows;
     private List<List<TextField>> allTextFields;
 
-    private String defaultTextStyle = "-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 22.0;";
+    private String defaultTextStyle = "-fx-background-color: black; -fx-border-color: gray; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 25.5; -fx-display-caret: false;";
     private String greenTextStyle = "-fx-background-color: #246935; -fx-text-fill: white; -fx-font-weight: bold;";
     private String yellowTextStyle = "-fx-background-color: #9e9823; -fx-text-fill: white; -fx-font-weight: bold;";
     private String grayTextStyle = "-fx-background-color: #2b2a2a; -fx-text-fill: white; -fx-font-weight: bold;";
@@ -100,7 +104,7 @@ public class WordleController {
             allTextFields.add(new ArrayList<TextField>());
         }
         for (int j = 0; j < rows.size(); j++) {
-            for (int i = 0; i < rows.get(j).getChildren().size(); i += 2) {
+            for (int i = 0; i < rows.get(j).getChildren().size(); i++) {
                 allTextFields.get(j).add((TextField) rows.get(j).getChildren().get(i));
             }
         }
@@ -108,18 +112,32 @@ public class WordleController {
 
     @FXML
     private void whenTyped() {
-        checkWord(0, allTextFields.get(1).get(0));
-        checkWord(1, allTextFields.get(2).get(0));
-        checkWord(2, allTextFields.get(3).get(0));
-        checkWord(3, allTextFields.get(4).get(0));
-        checkWord(4, allTextFields.get(5).get(0));
-        checkWord(5, allTextFields.get(0).get(0));
+        for (int i = 0; i <= 5; i++) {
+            if (i == 5)
+                checkWord(i, allTextFields.get(0).get(0));
+            else
+                checkWord(i, allTextFields.get(i + 1).get(0));
+        }
     }
 
     @FXML
     private void whenClicked() {
         resetGame();
     }
+
+    // private boolean whenKeyPressed(KeyEvent Ke) {
+    //     if (Ke.getCode() == KeyCode.ENTER) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+        
+    //     // currentTextFields.get(rowIndex).setOnKeyTyped(events -> {
+    //     //     if (events.getCode() == KeyCode.ENTER) {
+    //     //         boolean enterPressed = true;
+    //     //     }
+    //     // });
+    // }
 
     /*
      * @FXML
@@ -143,17 +161,18 @@ public class WordleController {
          * }
          */
 
+        // boolean enterPressed = false;
         List<TextField> currentTextFields = allTextFields.get(rowIndex);
         String guess = "";
         for (int j = 0; j < currentTextFields.size(); j++) {
             guess += currentTextFields.get(j).getText().toLowerCase();
+            // currentTextFields.get(j).setStyle("-fx-display-caret-false;");
         }
         char[] guessCharArr = guess.toCharArray();
 
-        displayText(currentTextFields.get(0), currentTextFields.get(1));
-        displayText(currentTextFields.get(1), currentTextFields.get(2));
-        displayText(currentTextFields.get(2), currentTextFields.get(3));
-        displayText(currentTextFields.get(3), currentTextFields.get(4));
+        for (int i = 0; i < 4; i++) {
+            displayText(currentTextFields.get(i), currentTextFields.get(i + 1));
+        }
         displayText(currentTextFields.get(4), nextTF);
 
         /*
@@ -206,13 +225,29 @@ public class WordleController {
             if (!(validWords.contains(guess))) { // The guess is an invalid word
                 for (TextField tf : currentTextFields) {
                     tf.clear();
+                    final Duration timeWrong = Duration.millis(65);
+                    TranslateTransition transTrans1 = new TranslateTransition(timeWrong);
+                    transTrans1.setFromX(-65f);
+                    transTrans1.setToX(0f);
+                    transTrans1.setAutoReverse(true);
+                    TranslateTransition transTrans2 = new TranslateTransition(timeWrong);
+                    transTrans2.setFromX(65f);
+                    transTrans2.setToX(0f);
+                    SequentialTransition seqT = new SequentialTransition(tf, transTrans1, transTrans2);
+                    seqT.play();
                 }
                 currentTextFields.get(0).requestFocus();
                 mainLabel.setText("Not a valid word");
+
             } else if (guess.equals(answerLow)) { // The guess is the answer
                 for (TextField tf : currentTextFields) {
                     tf.setStyle(greenTextStyle);
                     tf.setEditable(false);
+                    final Duration timeCorrect = Duration.millis(1300);
+                    RotateTransition rotTrans = new RotateTransition(timeCorrect);
+                    rotTrans.setByAngle(360f);
+                    SequentialTransition seqT = new SequentialTransition(tf, rotTrans);
+                    seqT.play();
                 }
                 mainLabel.setText("YOU WON!");
                 playAgainB.requestFocus();
@@ -269,6 +304,16 @@ public class WordleController {
     private void displayText(TextField currentTF, TextField nextTF) {
         if (currentTF.isFocused() && currentTF.getText().length() == 1) {
             currentTF.setText(currentTF.getText().toUpperCase());
+
+            final Duration timeNext = Duration.millis(35);
+            TranslateTransition transTrans = new TranslateTransition(timeNext);
+            transTrans.setFromY(0f);
+            transTrans.setToY(-20f);
+            transTrans.setCycleCount(2);
+            transTrans.setAutoReverse(true);
+            SequentialTransition seqT = new SequentialTransition(currentTF, transTrans);
+            seqT.play();
+
             if (currentTF.getId().equals("r6c5")) {
                 mainLabel.setText("It was " + answerUp);
                 playAgainB.requestFocus();
@@ -297,6 +342,7 @@ public class WordleController {
         Random rand = new Random();
         answerLow = validWords.get(rand.nextInt(validWords.size()));
         answerUp = answerLow.toUpperCase();
+        // System.out.println(answerUp);
     }
 
 }
