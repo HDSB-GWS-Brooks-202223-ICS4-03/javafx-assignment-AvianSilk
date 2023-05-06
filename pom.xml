@@ -37,7 +37,7 @@
         <version>${javafx.maven.plugin.version}</version>
         <configuration>
           <!-- Replace HelloFX with the class name of the main class you wish to run -->
-          <mainClass>App</mainClass>
+          <mainClass>Wordle</mainClass>
         </configuration>
       </plugin>
     </plugins>
